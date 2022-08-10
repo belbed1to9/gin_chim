@@ -13,16 +13,24 @@
 [GIN-debug] GET    /api/test                 --> main.main.func1 (5 handlers)
 [GIN-debug] GET    /api/videos               --> main.main.func2 (5 handlers)
 [GIN-debug] POST   /api/videos               --> main.main.func3 (5 handlers)
+[GIN-debug] GET    /api/users/:id            --> gin_chim/controllers.GetUserDetail (5 handlers)
+[GIN-debug] GET    /api/users/               --> gin_chim/controllers.GetUser (5 handlers)
+[GIN-debug] POST   /api/login/               --> gin_chim/controllers.Login (5 handlers)
+[GIN-debug] PUT    /api/users/:id            --> gin_chim/controllers.UpdateUser (5 handlers)
+[GIN-debug] POST   /api/users                --> gin_chim/controllers.PostUser (5 handlers)
 [GIN-debug] GET    /view/videos              --> gin_chim/controllers.VideoController.ShowAll-fm (5 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
-192.168.0.3 - [03 Aug 22 23:06 KST] POST /api/videos 200 9.4022ms 
-192.168.0.3 - [03 Aug 22 23:06 KST] GET /api/videos 200 5.9149ms 
-::1 - [03 Aug 22 23:06 KST] GET /view/videos 200 14.504ms 
-192.168.0.3 - [03 Aug 22 23:06 KST] POST /api/videos 200 7.0985ms 
-192.168.0.3 - [03 Aug 22 23:06 KST] GET /api/videos 200 8.4573ms 
-::1 - [03 Aug 22 23:06 KST] GET /view/videos 200 11.4515ms 
-192.168.0.3 - [03 Aug 22 23:08 KST] POST /api/videos 200 7.162ms 
-::1 - [03 Aug 22 23:08 KST] GET /view/videos 200 11.0223ms 
-::1 - [03 Aug 22 23:08 KST] GET /favicon.ico 404 8.3953ms 
+::1 - [10 Aug 22 16:53 KST] GET /test 404 10.1584ms 
+::1 - [10 Aug 22 16:53 KST] GET /favicon.ico 404 12.725ms 
+::1 - [10 Aug 22 16:53 KST] GET /api/test 200 9.4485ms 
+::1 - [10 Aug 22 16:53 KST] GET /api/videos 200 9.3488ms 
+[GIN-debug] redirecting request 301: /api/users/ --> /api/users/
+::1 - [10 Aug 22 16:53 KST] GET /api/users/ 404 8.7379ms 
+::1 - [10 Aug 22 16:56 KST] GET /api/users/ 404 5.2364ms 
+::1 - [10 Aug 22 16:56 KST] GET /api/videos 200 5.031ms 
+::1 - [10 Aug 22 16:58 KST] POST /api/users 400 8.1975ms 
+::1 - [10 Aug 22 16:59 KST] POST /api/users 200 7.4367ms 
+[GIN-debug] redirecting request 301: /api/users/ --> /api/users/
+::1 - [10 Aug 22 17:00 KST] GET /api/users/ 404 6.2466ms 

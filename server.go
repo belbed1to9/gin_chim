@@ -3,7 +3,9 @@ package main
 import (
 	"gin_chim/controllers"
 	"gin_chim/middlewares"
+	"gin_chim/mysql"
 	"gin_chim/service"
+
 	"io"
 	"net/http"
 	"os"
@@ -33,8 +35,8 @@ func main() {
 	server.LoadHTMLGlob("templates/*.html")
 
 	server.Use(gin.Recovery(), middlewares.Logger(),
-		middlewares.BasicAuth(), gindump.Dump())
-
+		gindump.Dump(), mysql.Cors())
+	//middlewares.BasicAuth()
 	apiRoutes := server.Group("/api")
 	{
 		apiRoutes.GET("/test", func(ctx *gin.Context) {
@@ -54,7 +56,11 @@ func main() {
 				ctx.JSON(http.StatusOK, gin.H{"message": "Video input is valid!"})
 			}
 		})
-
+		apiRoutes.GET("/users/:id", controllers.GetUserDetail)
+		apiRoutes.GET("/users/", controllers.GetUser)
+		apiRoutes.POST("/login/", controllers.Login)
+		apiRoutes.PUT("/users/:id", controllers.UpdateUser)
+		apiRoutes.POST("/users", controllers.PostUser)
 	}
 	viewRoutes := server.Group("/view")
 	{
